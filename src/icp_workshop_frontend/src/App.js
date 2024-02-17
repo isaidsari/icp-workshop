@@ -11,8 +11,14 @@ class App {
 
   #handleSubmit = async (e) => {
     e.preventDefault();
-    const name = document.getElementById('name').value;
+    const v = document.getElementById('name').value;
+
+    // format get:bedroom
+    // format set:bedroom:off
+
+  
     this.greeting = await icp_workshop_backend.greet(name);
+
     this.#render();
   };
 
