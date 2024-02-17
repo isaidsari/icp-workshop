@@ -8,13 +8,16 @@ lazy_static! {
 
 #[ic_cdk::query]
 fn greet(name: String) -> String {
+
+    ic_cdk::print(format!("data {}", name).as_str());
     
     // check if starts with get or set
-    if name.starts_with("get:") {
+    if name.starts_with("get") {
         let path = name.split_at(4).1;
         return get_status(path.to_string());
-    } else if name.starts_with("set:") {
-        set_status(name);
+    } else if name.starts_with("set") {
+        let data = name.split_at(4).1;
+        set_status(data.to_string());
         return "Status set".to_string();
     } else {
         return "Invalid command".to_string();

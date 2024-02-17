@@ -13,11 +13,13 @@ class App {
     e.preventDefault();
     const v = document.getElementById('name').value;
 
+    console.log('v:', v);
+
     // format get:bedroom
     // format set:bedroom:off
 
   
-    this.greeting = await icp_workshop_backend.greet(name);
+    this.greeting = await icp_workshop_backend.greet(v);
 
     this.#render();
   };
